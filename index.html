@@ -10,29 +10,6 @@
 </head>
 
 <body>
-  <!-- <h1>Login</h1>
-       
-          <form onsubmit="signup(); return false;">
-          
-          <label for="UserName"></label>
-          <input type="text" name="" id="username" placeholder="username" required>
-          <br>
-          
-          <label for="Email"></label>
-          <input type="Email" name="" id="email" placeholder="Email" required>
-          <br>
-          
-          <label for="Passwerd"></label>
-          <input type="passwerd" name="" id="Passwerd" placeholder="Passwerd" required>
-          <br>
-          
-          <button type="submit">Signup</button>
-        </form>
-        <button onclick="getalluser()">Submit</button>
-        <p id="message"></p>
-        <p id="data"></p> 
-  
-      <p id="allUserList"></p> -->
 
   <h1>Login</h1>
 
@@ -62,7 +39,7 @@
 
       let fullname = document.getElementById('fullname').value;
       let username = document.getElementById('username').value;
-      let password = document.getElementById('password').value;
+      let password = document.getElementById('Passwerd').value;
 
       axios.post('https://simplesocialmediaapp-server.herokuapp.com/user', {
         fullname: 'fullname',
