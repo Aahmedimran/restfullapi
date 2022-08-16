@@ -10,6 +10,29 @@
 </head>
 
 <body>
+  <!-- <h1>Login</h1>
+       
+          <form onsubmit="signup(); return false;">
+          
+          <label for="UserName"></label>
+          <input type="text" name="" id="username" placeholder="username" required>
+          <br>
+          
+          <label for="Email"></label>
+          <input type="Email" name="" id="email" placeholder="Email" required>
+          <br>
+          
+          <label for="Passwerd"></label>
+          <input type="passwerd" name="" id="Passwerd" placeholder="Passwerd" required>
+          <br>
+          
+          <button type="submit">Signup</button>
+        </form>
+        <button onclick="getalluser()">Submit</button>
+        <p id="message"></p>
+        <p id="data"></p> 
+  
+      <p id="allUserList"></p> -->
 
   <h1>Login</h1>
 
@@ -41,7 +64,7 @@
       let username = document.getElementById('username').value;
       let password = document.getElementById('Passwerd').value;
 
-      axios.post('https://simplesocialmediaapp-server.herokuapp.com/user', {
+      axios.post('https://simplesocialmediaapp-server.herokuapp.com/users', {
         fullname: 'fullname',
         username: 'username',
         password: 'password'
@@ -58,7 +81,7 @@
 
     const getalluser = () => {
       // Make a request for a user with a given ID
-      axios.get('https://simplesocialmediaapp-server.herokuapp.com/user')
+      axios.get('https://simplesocialmediaapp-server.herokuapp.com/users')
         .then(function (response) {
           // handle success
 
@@ -70,6 +93,7 @@
         })
         .catch(function (error) {
           // handle error
+          
           console.log(error);
         })
         .then(function () {
