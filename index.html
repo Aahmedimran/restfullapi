@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>social media login/signup</title>
+</head>
+
+<body>
+  <!-- <h1>Login</h1>
+       
+          <form onsubmit="signup(); return false;">
+          
+          <label for="UserName"></label>
+          <input type="text" name="" id="username" placeholder="username" required>
+          <br>
+          
+          <label for="Email"></label>
+          <input type="Email" name="" id="email" placeholder="Email" required>
+          <br>
+          
+          <label for="Passwerd"></label>
+          <input type="passwerd" name="" id="Passwerd" placeholder="Passwerd" required>
+          <br>
+          
+          <button type="submit">Signup</button>
+        </form>
+        <button onclick="getalluser()">Submit</button>
+        <p id="message"></p>
+        <p id="data"></p> 
+  
+      <p id="allUserList"></p> -->
+
+  <h1>Login</h1>
+
+  <form onsubmit="signup(); return false;">
+
+    <label for="fullname">fullname</label>
+    <input type="text" name="" id="fullname" placeholder="fullname" required>
+    <br>
+
+    <label for="username">username</label>
+    <input type="text" name="" id="username" placeholder="username" required>
+    <br>
+
+    <label for="password">Password</label>
+    <input type="password" name="" id="Passwerd" placeholder="password" required>
+    <br>
+
+    <button type="submit">Signup</button>
+  </form>
+  <p id="message"></p>
+  <br>
+  <br>
+  <button onclick="getalluser()">Submit</button>
+  <p id="allUserList"></p>
+  <script>
+    const signup = () => {
+
+      let fullname = document.getElementById('fullname').value;
+      let username = document.getElementById('username').value;
+      let password = document.getElementById('password').value;
+
+      axios.post('https://simplesocialmediaapp-server.herokuapp.com/user', {
+        fullname: 'fullname',
+        username: 'username',
+        password: 'password'
+      })
+        .then(function (response) {
+          console.log(response.data);
+          document.querySelectorAll("message").innerHTML = response.data;
+
+        })
+        .catch(function (error) {
+          console.log(error.message);
+        });
+    }
+
+    const getalluser = () => {
+      // Make a request for a user with a given ID
+      axios.get('https://simplesocialmediaapp-server.herokuapp.com/user')
+        .then(function (response) {
+          // handle success
+
+          console.log(response.data);
+          response.data.map(eachuser => {
+            document.querySelectorAll("allUserList").innerHTML = `${eachuser.fullname})
+}<br/>${eachuser.username}<br/>${eachuser.password}`;
+          })
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        })
+
+    }
+  </script>
+
+
+
+</body>
+
+</html>
